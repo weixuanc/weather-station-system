@@ -1,0 +1,13 @@
+{
+  "name": "weather-station-system",
+  "version": "1.0.0",
+  "description": "查询各地区历史天气",
+  "license": "ISC",
+  "author": "chenweixuan",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
