@@ -79,7 +79,7 @@ console.log(result);
   }
 }
 ```
-### 二、根据区域编码获取历史气象数据(需要联网)
+### 三、根据区域编码获取历史气象数据(需要联网)
 接口可获取本月全部的历史数据，根据业务需求自行过滤需要的数据项。
 ```js
 import { stationMonthDataByCode } from 'weather-station-system';
@@ -146,7 +146,7 @@ console.log(result);
 }
 ```
 ## 服务器配置（可选）
-可通过Nginx配置服务器或者使用默认地址，关键的是配置跨域头。
+可直接使用默认地址或通过Nginx配置私有服务器，关键点是配置跨域头。
 ```
 location /api/t {
   add_header 'Access-Control-Allow-Origin' '*';
