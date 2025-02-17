@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     "lng": 116.405285,
     "adcode": "110100",

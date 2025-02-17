@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   100000: {
     110000: '北京市',
     120000: '天津市',

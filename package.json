@@ -9,6 +9,7 @@
   "license": "ISC",
   "author": "chenweixuan",
   "main": "dist/bundle.js",
+  "type": "module",
   "scripts": {
     "dev": "node src/index.js",
     "test": "node src/test.js",

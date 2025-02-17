@@ -1,7 +1,7 @@
-const stations = require('./data/weather_area_station');
-const areaTable = require('./data/area_code');
-const axios = require('axios');
-const iconv = require('iconv-lite');
+import stations from'./data/weather_area_station.js';
+import areaTable from'./data/area_code.js';
+import axios from'axios';
+import iconv from'iconv-lite';
 
 const proxyUrl = 'https://solariot.iot2.c2lightlink.com/api';
 /**
@@ -9,7 +9,7 @@ const proxyUrl = 'https://solariot.iot2.c2lightlink.com/api';
  * /
  * @param {string} code 6位区域代码
  */
-function areaInfoByCode(code) {
+export function areaInfoByCode(code) {
   let areaNameInfo = {
     name: '未知',
     type: '未知',
@@ -71,7 +71,7 @@ function areaInfoByCode(code) {
  * @param {string} code 6位区域代码
  * @param {string} date 日期；示例：202502
  */
-function stationByCode(code) {
+export function stationByCode(code) {
   let station = stations.find(item => item.adcode === code);
   return {
     ...areaInfoByCode(code),
@@ -85,7 +85,7 @@ function stationByCode(code) {
  * @param {string} code 6位区域代码
  * @param {string} date 2022-02
  */
-async function stationMonthDataByCode(code, date) {
+export async function stationMonthDataByCode(code, date) {
   const result = stationByCode(code);
   const csid = result?.station?.csid;
   let weatherInfo = null
@@ -107,8 +107,3 @@ async function stationMonthDataByCode(code, date) {
     weatherInfo
   }
 }
-module.exports = {
-  areaInfoByCode,
-  stationByCode,
-  stationMonthDataByCode
-};

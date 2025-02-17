@@ -1,4 +1,4 @@
-const { areaInfoByCode, stationByCode, stationMonthDataByCode } = require('./index');
+import { areaInfoByCode, stationByCode, stationMonthDataByCode }  from './index.js';
 
 // 区域编号
 const code = '350211';
@@ -16,7 +16,4 @@ console.log(stationByCode(code));
 
 // 测试区域代码获取区域气象站月份数据
 console.log('===========测试区域代码获取区域气象站月份数据============');
-async function test() {
-  console.log(await stationMonthDataByCode(code, date));
-}
-test();
+console.log(await stationMonthDataByCode(code, date));
