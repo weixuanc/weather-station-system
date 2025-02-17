@@ -6,7 +6,7 @@ export default {
   entry: './src/index.js',
   // 输出配置
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve('dist'),
     filename: 'bundle.js',
     // 输出为 ESModule 格式
     library: {
