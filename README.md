@@ -24,12 +24,21 @@ console.log(result);
 - type: 编码类型（省份、城市、区县）
 ```json
 {
-  name: '福建省-厦门市-集美区',
-  type: '区县',
-  detail: {
-    province: { code: '350000', name: '福建省' },
-    city: { code: '350200', name: '厦门市' },
-    area: { code: '350211', name: '集美区' }
+  "name": "福建省-厦门市-集美区",
+  "type": "区县",
+  "detail": {
+    "province": {
+      "code": "350000",
+      "name": "福建省"
+    },
+    "city": {
+      "code": "350200",
+      "name": "厦门市"
+    },
+    "area": {
+      "code": "350211",
+      "name": "集美区"
+    }
   }
 }
 ```
@@ -44,20 +53,29 @@ console.log(result);
 #### 返回数据
 ```json
 {
-  name: '福建省-厦门市-集美区',
-  type: '区县',
-  detail: {
-    province: { code: '350000', name: '福建省' },
-    city: { code: '350200', name: '厦门市' },
-    area: { code: '350211', name: '集美区' }
+  "name": "福建省-厦门市-集美区",
+  "type": "区县",
+  "detail": {
+    "province": {
+      "code": "350000",
+      "name": "福建省"
+    },
+    "city": {
+      "code": "350200",
+      "name": "厦门市"
+    },
+    "area": {
+      "code": "350211",
+      "name": "集美区"
+    }
   },
-  station: {
-    lng: 118.100869,
-    adcode: '350211',
-    csid: 59134,
-    hcode: 'CN101230206',
-    lat: 24.572874,
-    sid: 71919
+  "station": {
+    "lng": 118.100869,
+    "adcode": "350211",
+    "csid": 59134,
+    "hcode": "CN101230206",
+    "lat": 24.572874,
+    "sid": 71919
   }
 }
 ```
@@ -87,32 +105,41 @@ console.log(result);
 - aqiLevel: 空气质量指数等级
 ```json
 {
-  name: '福建省-厦门市-集美区',
-  type: '区县',
-  detail: {
-    province: { code: '350000', name: '福建省' },
-    city: { code: '350200', name: '厦门市' },
-    area: { code: '350211', name: '集美区' }
+  "name": "福建省-厦门市-集美区",
+  "type": "区县",
+  "detail": {
+    "province": {
+      "code": "350000",
+      "name": "福建省"
+    },
+    "city": {
+      "code": "350200",
+      "name": "厦门市"
+    },
+    "area": {
+      "code": "350211",
+      "name": "集美区"
+    }
   },
-  station: {
-    lng: 118.100869,
-    adcode: '350211',
-    csid: 59134,
-    hcode: 'CN101230206',
-    lat: 24.572874,
-    sid: 71919
+  "station": {
+    "lng": 118.100869,
+    "adcode": "350211",
+    "csid": 59134,
+    "hcode": "CN101230206",
+    "lat": 24.572874,
+    "sid": 71919
   },
-  weatherInfo: [
+  "weatherInfo": [
     {
-      ymd: '2022-02-01',
-      bWendu: '12℃',
-      yWendu: '10℃',
-      tianqi: '大雨~小雨',
-      fengxiang: '东北风',
-      fengli: '3级',
-      aqi: '28',
-      aqiInfo: '优',
-      aqiLevel: '1'
+      "ymd": "2022-02-01",
+      "bWendu": "12℃",
+      "yWendu": "10℃",
+      "tianqi": "大雨~小雨",
+      "fengxiang": "东北风",
+      "fengli": "3级",
+      "aqi": "28",
+      "aqiInfo": "优",
+      "aqiLevel": "1"
     }
   ]
 }
