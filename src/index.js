@@ -1,14 +1,15 @@
-import { stations } from './data/weather_area_station.js';
-import areaTable from './data/area_code.js';
-import axios from 'axios';
-import iconv from 'iconv-lite';
+const stations = require('./data/weather_area_station');
+const areaTable = require('./data/area_code');
+const axios = require('axios');
+const iconv = require('iconv-lite');
 
+const proxyUrl = 'https://solariot.iot2.c2lightlink.com/api';
 /**
  * 根据区域代码获取区域名称
  * /
  * @param {string} code 6位区域代码
  */
-export function areaInfoByCode(code) {
+function areaInfoByCode(code) {
   let areaNameInfo = {
     name: '未知',
     type: '未知',
@@ -68,8 +69,9 @@ export function areaInfoByCode(code) {
  * 根据区域代码获取区域气象站
  * /
  * @param {string} code 6位区域代码
+ * @param {string} date 日期；示例：202502
  */
-export function stationByCode(code) {
+function stationByCode(code) {
   let station = stations.find(item => item.adcode === code);
   return {
     ...areaInfoByCode(code),
@@ -83,20 +85,21 @@ export function stationByCode(code) {
  * @param {string} code 6位区域代码
  * @param {string} date 2022-02
  */
-export async function stationMonthDataByCode(code, month) {
+async function stationMonthDataByCode(code, date) {
   const result = stationByCode(code);
   const csid = result?.station?.csid;
   let weatherInfo = null
   if (csid) {
     try {
-      let { data } = await axios.get(`https://tianqi.2345.com/t/wea_history/js/${month}/${csid}_${month}.js`, { responseType: 'arraybuffer' });
+      let url = `${proxyUrl}/t/wea_history/js/${date}/${csid}_${date}.js`;
+      let { data } = await axios.get(url, { responseType: 'arraybuffer' });
       // 2345天气历史数据是gbk编码的，需要转码
       const dataUtf8 = iconv.decode(data, 'gbk');
       const wea_history = new Function('return' + dataUtf8.substring(16, data.length - 1))()
       wea_history.tqInfo.pop(); // 去掉最后一行空数据
       weatherInfo = wea_history.tqInfo
     } catch (error) {
-      // console.error('error');
+      console.error(error);
     }
   }
   return {
@@ -104,3 +107,8 @@ export async function stationMonthDataByCode(code, month) {
     weatherInfo
   }
 }
+module.exports = {
+  areaInfoByCode,
+  stationByCode,
+  stationMonthDataByCode
+};

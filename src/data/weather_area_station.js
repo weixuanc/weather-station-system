@@ -1,4 +1,4 @@
-export const stations = [
+module.exports = [
   {
     "lng": 116.405285,
     "adcode": "110100",

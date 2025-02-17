@@ -14,7 +14,7 @@ hcode|气象台站号对应的天气ID|示例：CN101230206，集美区气息站
 ## 示例
 ### 一、根据区域编码获取地区信息
 ```js
-import { areaInfoByCode, stationByCode, stationMonthDataByCode } from 'weather-station-info';
+import { areaInfoByCode, stationByCode, stationMonthDataByCode } from 'weather-station-system';
 // 区域编号
 const code = '350211';
 const result = areaInfoByCode(code);
@@ -44,7 +44,7 @@ console.log(result);
 ```
 ### 二、根据区域编码获取气象站信息
 ```js
-import { stationByCode } from 'weather-station-info';
+import { stationByCode } from 'weather-station-system';
 // 区域编号
 const code = '350211';
 const result = stationByCode(code);
@@ -82,7 +82,7 @@ console.log(result);
 ### 二、根据区域编码获取历史气象数据(需要联网)
 接口可获取本月全部的历史数据，根据业务需求自行过滤需要的数据项。
 ```js
-import { stationMonthDataByCode } from 'weather-station-info';
+import { stationMonthDataByCode } from 'weather-station-system';
 // 区域编号
 const code = '350211';
 // 日期
