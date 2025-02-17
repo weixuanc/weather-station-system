@@ -87,7 +87,8 @@ import { stationMonthDataByCode } from 'weather-station-system';
 const code = '350211';
 // 日期
 const date = '202502';
-const result = stationMonthDataByCode(code, date);
+// 有异步请求，需要等待请求响应
+const result = await stationMonthDataByCode(code, date);
 console.log(result);
 ```
 #### 返回数据
