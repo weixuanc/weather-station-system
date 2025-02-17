@@ -90,11 +90,19 @@ export async function stationMonthDataByCode(code, date) {
   const csid = result?.station?.csid;
   let weatherInfo = null
   if (csid) {
+    const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
+    let responseType = 'arraybuffer'
+    if (isBrowser) responseType = 'text'
     try {
       let url = `${proxyUrl}/t/wea_history/js/${date}/${csid}_${date}.js`;
-      let { data } = await axios.get(url, { responseType: 'arraybuffer' });
-      // 2345天气历史数据是gbk编码的，需要转码
-      const dataUtf8 = iconv.decode(data, 'gbk');
+      let { data } = await axios.get(url, { 
+        responseType
+      });
+      // 天气历史数据是gbk编码的，需要转码
+      let dataUtf8 = data
+      if (!isBrowser) {
+        dataUtf8 = iconv.decode(data, 'gbk');
+      }
       const wea_history = new Function('return' + dataUtf8.substring(16, data.length - 1))()
       wea_history.tqInfo.pop(); // 去掉最后一行空数据
       weatherInfo = wea_history.tqInfo

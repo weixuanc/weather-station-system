@@ -145,6 +145,15 @@ console.log(result);
   ]
 }
 ```
+## 服务器配置（可选）
+可通过Nginx配置服务器或者使用默认地址，关键的是配置跨域头。
+```
+location /api/t {
+  add_header 'Access-Control-Allow-Origin' '*';
+  charset gbk,utf-8;
+  proxy_pass http://tianqi.2345.com/t;
+}
+```
 ## 拓展
 如因服务器问题，导致气象历史数据访问异常，可自行接入其他数据源，气象站的数据是通用的。
 - [中国气象数据网](https://data.cma.cn/)
