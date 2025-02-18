@@ -154,6 +154,25 @@ location /api/t {
   proxy_pass http://tianqi.2345.com/t;
 }
 ```
+### 四、根据经纬度和日期计算日落日出时间
+```js
+import { calculateSunriseSunset } from 'weather-station-system';
+const longitude = 118.0922581; // 经度，单位：度
+const latitude = 24.5780219; // 纬度，单位：度
+const date = '2025-02-21'; // 日期
+const result = calculateSunriseSunset(longitude, latitude, date);
+console.log(`日出时间: ${result.sunrise}`);
+console.log(`日落时间: ${result.sunset}`);
+```
+#### 返回数据
+- sunrise: 日出时间
+- sunset: 日落时间
+```json
+{
+  "sunrise": "06:28",
+  "sunset": "17:47"
+}
+```
 ## 拓展
 如因服务器问题，导致气象历史数据访问异常，可自行接入其他数据源，气象站的数据是通用的。
 - [中国气象数据网](https://data.cma.cn/)
