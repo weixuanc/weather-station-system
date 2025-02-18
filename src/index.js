@@ -9,17 +9,18 @@ const proxyUrl = 'https://solariot.iot2.c2lightlink.com/api';
  * @param {string} code 6位区域代码
  */
 export function getRegions (code) {
-  if (!code) {
+  if (code) {
     return areaTable[code];
   }
   return areaTable;
 }
+console.log(getRegions());
 /**
  * 获取省市县地区气象站信息
  * @param {string} code 6位区域代码
  */
 export function getStation (code) {
-  if (!code) {
+  if (code) {
     return stations.find(item => item.adcode === code);
   }
   return stations;
