@@ -1,6 +1,6 @@
 {
   "name": "weather-station-system",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "查询各地区历史天气",
   "keywords": [
     "中国城市天气",

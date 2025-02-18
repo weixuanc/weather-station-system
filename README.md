@@ -173,6 +173,41 @@ console.log(`日落时间: ${result.sunset}`);
   "sunset": "17:47"
 }
 ```
+### 五、获取省市县地区信息
+传入区域编号可获取下级列表，不传则返回全部地区数据。
+```js
+import { getRegions } from 'weather-station-system';
+// 区域编号
+const code = '110000';
+const result = getRegions(code);
+console.log(result);
+```
+#### 返回数据
+```json
+{
+  "110100": "北京市"
+}
+```
+### 六、获取省市县地区气象站信息
+传入区域编号可获取对应地区气象站信息，不传则返回全部气象站数据。
+```js
+import { getStation } from 'weather-station-system';
+// 区域编号
+const code = '350211';
+const result = getStation(code);
+console.log(result);
+```
+#### 返回数据
+```json
+{
+  "lng": 118.100869,
+  "adcode": "350211",
+  "csid": 59134,
+  "hcode": "CN101230206",
+  "lat": 24.572874,
+  "sid": 71919
+},
+```
 ## 拓展
 如因服务器问题，导致气象历史数据访问异常，可自行接入其他数据源，气象站的数据是通用的。
 - [中国气象数据网](https://data.cma.cn/)

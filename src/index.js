@@ -5,6 +5,26 @@ import iconv from 'iconv-lite';
 
 const proxyUrl = 'https://solariot.iot2.c2lightlink.com/api';
 /**
+ * 获取省市县地区信息
+ * @param {string} code 6位区域代码
+ */
+export function getRegions (code) {
+  if (!code) {
+    return areaTable[code];
+  }
+  return areaTable;
+}
+/**
+ * 获取省市县地区气象站信息
+ * @param {string} code 6位区域代码
+ */
+export function getStation (code) {
+  if (!code) {
+    return stations.find(item => item.adcode === code);
+  }
+  return stations;
+}
+/**
  * 根据区域代码获取区域名称
  * /
  * @param {string} code 6位区域代码
@@ -64,7 +84,6 @@ export function areaInfoByCode(code) {
   }
   return areaNameInfo;
 }
-
 /**
  * 根据区域代码获取区域气象站
  * /
